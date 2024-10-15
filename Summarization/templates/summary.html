@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+
+    <style>
+        /* Modern Light Theme Styles */
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        .jumbotron {
+            background-color: #e3f2fd;
+            color: #0d47a1;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .heading {
+            color: #0d47a1;
+        }
+
+        .container .original_title, .container .summary_title {
+            font-weight: bold;
+            color: white;
+        }
+
+        .originaltxt, .summarytxt {
+            background-color: #cde9e5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            box-shadow: 4px 4px 4px rgba(63, 63, 63, 0.952);
+        }
+
+        .btn-success {
+            background-color: #66bb6a;
+            border-color: #66bb6a;
+            color: #fff;
+        }
+
+        .btn-primary {
+            background-color: #42a5f5;
+            border-color: #42a5f5;
+            color: #fff;
+        }
+
+        .btn-danger {
+            background-color: #ef5350;
+            border-color: #ef5350;
+            color: #fff;
+        }
+
+        footer {
+            background-color: #e0e0e0;
+            color: #555;
+            padding: 1rem;
+            border-top: 1px solid #ccc;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4 heading">Text Summarization</h1>
+                <p class="lead">Retrieve the best summary for your text.</p>
+            </div>
+        </div>
+        <div class="container" style="display: flex; justify-content: space-around; margin-top: 20px;">
+            <p class="original_title col-sm-4">Original Text</p>
+            <p class="summary_title col-sm-4">Summary</p>
+        </div>
+        <div class="container srt">
+            <p class="originaltxt col-sm-6">{{original_txt}}</p>
+            <div class="container col-sm-6">
+                <p class="summarytxt" id="summary-text">{{summary}}</p>
+                <button class="btn btn-success" type="button" style="margin: 10px;">Words: {{len_summary}}</button>
+                <button class="btn btn-primary" type="button" onclick="copySummary()" style="margin: 10px;">Copy Summary</button>
+            </div>
+        </div>
+        <div class="container">
+            <button class="btn btn-danger" type="button" style="margin-top: 20px;">Words: {{len_orig_txt}}</button>
+        </div>
+    </div>
+
+    <footer class="text-center mt-4">
+        <div class="container">
+            <p>&copy; 2024 PSD. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+    <script>
+        function copySummary() {
+            // Get the summary text
+            var summaryText = document.getElementById("summary-text").innerText;
+
+            // Create a temporary textarea to copy the text
+            var tempTextarea = document.createElement("textarea");
+            tempTextarea.value = summaryText;
+            document.body.appendChild(tempTextarea);
+
+            // Select and copy the text
+            tempTextarea.select();
+            document.execCommand("copy");
+
+            // Remove the temporary textarea
+            document.body.removeChild(tempTextarea);
+
+            // Alert the user that the text has been copied
+            alert("Summary copied to clipboard!");
+        }
+    </script>
+</body>
+
+</html>

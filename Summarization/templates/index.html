@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+
+    <style>
+        /* Light Theme Styles */
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+        }
+
+        .jumbotron {
+            background-color: #e0f7fa;
+            color: #00796b;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .heading {
+            color: #00796b;
+        }
+
+        .form-control {
+            background-color: #fff;
+            border: 1px solid #b0bec5;
+            border-radius: 8px;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .submitBtn {
+            background-color: #26a69a;
+            border-color: #26a69a;
+            color: #fff;
+            margin-top: 1rem;
+        }
+
+        .submitBtn:hover {
+            background-color: #00796b;
+            border-color: #00796b;
+        }
+
+        footer {
+            background-color: #e0f2f1;
+            color: #00796b;
+            padding: 1rem;
+            border-top: 1px solid #b0bec5;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4 heading">Text Summarization</h1>
+                <p class="lead">Retrieve the best summary for your text.</p>
+            </div>
+        </div>
+
+        <form action="/analyze" method="POST">
+            <textarea name="rawtext" class="form-control" rows="3" placeholder="Enter your raw text."></textarea>
+            <button class="btn btn-primary submitBtn" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+<footer class="text-center mt-4">
+    <div class="container">
+        <p class="text-muted">&copy; 2024 PSD. All rights reserved.</p>
+    </div>
+</footer>
+
+</html>
